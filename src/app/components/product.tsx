@@ -1,12 +1,15 @@
 "use client"
 
 import type {Producto} from "../types/product";
-
+import { useRouter } from "next/navigation";
 
 
 const Product = ({product}: {product: Producto}) => {
 
 
+
+    const router = useRouter();
+    
     return (
         <div key={product.id} className="product-card">
             <img src={product.thumbnail} alt={product.title}/>

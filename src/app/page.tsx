@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import "./page.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
+import { useRouter } from "next/navigation";
 import type { Producto } from "./types/product";
 import { getProducts } from "./api/products";
 import Product from "./components/product";
@@ -14,6 +15,8 @@ const Home = ()  =>{
   const [contador, setContador] = useState<number>(0);
   const [filtro, setFiltro] = useState<string>("");
   const [filtroFinal, setFiltroFinal] = useState<string>("");
+
+  const router = useRouter();
 
   useEffect(() => {
     getProducts().then((data) => {
