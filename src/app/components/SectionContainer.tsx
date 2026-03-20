@@ -10,7 +10,7 @@ type Props = {
 const SectionContainer = ({ children, titulo }: Props) => {
   return (
     <div className="section-wrapper">
-      <h1 className="main-title">{titulo}</h1>
+      <h1 className="text">{titulo}</h1>
       {children} 
     </div>
   );

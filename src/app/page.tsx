@@ -1,39 +1,44 @@
-"use client"
-
-import Image from "next/image";
-import "./page.css";
-import { useEffect, useState} from "react";
-import { useRouter } from "next/navigation";
-import type { Producto } from "./types/product";
-import { getProducts } from "./api/products";
+"use client";
+import { useEffect, useState } from "react";
+import { Producto } from "./types/product";
+import SectionContainer from "./components/SectionContainer";
+import SearchBar from "./components/SectionBar";
 import Product from "./components/product";
+import { getProducts } from "./api/products";
+import "./page.css";
 
-const Home = ()  =>{
-
-
+const Home = () => {
   const [products, setProducts] = useState<Producto[]>([]);
-  const [contador, setContador] = useState<number>(0);
-  const [filtro, setFiltro] = useState<string>("");
-  const [filtroFinal, setFiltroFinal] = useState<string>("");
-
-  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   useEffect(() => {
-    getProducts().then((data) => {
-      setProducts(data.products);
-    });
+      getProducts().then((data) => {
+        setProducts(data.products);
+      });
   }, []);
+
+ 
+  const filteredProducts = products.filter((p) =>
+    p.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
 
   return (
     <div className="page">
-          <h1> Listado de productos</h1>
-          <input type = "text" placeholder="Buscar producto" onChange = {(e) => setFiltro(e.target.value)} />
-          <button onClick={() => setFiltroFinal(filtro)}>Aplicar filtro</button>
+      <SectionContainer titulo="Listado de productos">
+        
+        {/* Pasamos la función set al hijo */}
+        <SearchBar setSearchQuery={setSearchQuery} />
 
-          <div className="product-container">
-            {products.map((product) => <Product key={product.id} product={product} />)}
-          </div>
+        <p className="text">Resultados: {filteredProducts.length} productos encontrados</p>
+
+        <div className="product-container">
+          {filteredProducts.map((p) => (
+            <Product key={p.id} product={p} />
+          ))}
+        </div>
+
+      </SectionContainer>
     </div>
   );
 }
