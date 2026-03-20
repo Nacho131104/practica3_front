@@ -92,3 +92,36 @@
   flex: 1;   
   text-align: left; 
 }
+.carrusel-container {
+  display: flex;
+  width: 100%;
+  max-width: 100%; 
+  align-items: center;
+  justify-content: center;
+}
+.carrusel-image {
+  width: 100%;
+  max-height: 450px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.carrusel-btn {
+  background-color: rgb(140, 137, 137); 
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+}
+.btn-prev {
+  left: 10px;
+}
+
+.btn-next {
+  right: 10px;
+}
