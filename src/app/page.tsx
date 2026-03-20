@@ -27,7 +27,6 @@ const Home = () => {
     <div className="page">
       <SectionContainer titulo="Listado de productos">
         
-        {/* Pasamos la función set al hijo */}
         <SearchBar setSearchQuery={setSearchQuery} />
 
         <p className="text">Resultados: {filteredProducts.length} productos encontrados</p>
