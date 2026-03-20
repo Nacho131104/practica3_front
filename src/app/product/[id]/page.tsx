@@ -81,14 +81,10 @@ const ProductDetail = () => {
                 <p className="text">Marca: {product.brand}</p>
                 <p className="text">Categoría: {product.category}</p>
                 <p className="text">Descripción: {product.description}</p>
-
                 <p className="text">Valoración:  {product.rating} / 5</p>
                 <p className="text">Stock: {product.stock} unidades</p>
-                
-                <div> 
-                    <p className="text">Peso: {product.weight}g</p>
-                    <p className="text" >Dimensiones: {product.dimensions?.width} x {product.dimensions?.height} x {product.dimensions?.depth} cm</p>
-                </div>
+                <p className="text">Peso: {product.weight}g</p>
+                <p className="text" >Dimensiones: {product.dimensions?.width} x {product.dimensions?.height} x {product.dimensions?.depth} cm</p>
               </div>
 
             </div>
