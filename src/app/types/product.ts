@@ -1,35 +1,26 @@
-
-
-
-
-
-export type  Producto = {
-  id: number;
-  thumbnail: string; // Imagen
-  title: string;     // Título
-  category: string;  // Categoría
-  price: number;
-}
-
-
-export type ProductComplete = {
+export type Producto =  {
   id: number;
   title: string;
-  description: string;
   price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  brand: string;
   category: string;
   thumbnail: string;
-  images: string[];
+  description?: string;
+  discountPercentage?: number;
+  rating?: number;
+  stock?: number;
+  brand?: string;
+  images?: string[];
+  dimensions?: {
+    width: number;
+    height: number;
+    depth: number;
+  };
+  weight?: number;
 }
 
-export type ProductApi = {
+export type ProductApi =  {
   products: Producto[];
   total: number;
   skip: number;
   limit: number;
-
 }

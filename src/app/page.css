@@ -45,7 +45,7 @@
 }
 
 .text {
-  color: #2c3e50;
+  color: #080808;
   font-size: 1.2rem;
 }
 
@@ -62,4 +62,33 @@
   color: white;
   border: 1px solid #808080;  
   padding: 12px 20px;
+}
+
+.detail-media {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.image-detail {
+  display: flex;
+  width: 100%;
+  max-height: 450px;
+  object-fit: contain; 
+  border-radius: 8px;
+}
+
+.detail-container {
+  display: flex;
+  gap: 30px; 
+  margin-top: 20px;
+  align-items: flex-start; 
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+  flex: 1;   
+  text-align: left; 
 }
